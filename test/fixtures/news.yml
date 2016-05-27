@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_id: 1
+  title: MyString
+  date: 2016-05-26 16:19:20
+  description: MyText
+  image: MyString
+  city_id: 1
+  top_news: false
+
+two:
+  site_id: 1
+  title: MyString
+  date: 2016-05-26 16:19:20
+  description: MyText
+  image: MyString
+  city_id: 1
+  top_news: false
