@@ -56,4 +56,5 @@ gem 'fog'
 gem 'kaminari'
 gem 'jwt'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'devise'
 

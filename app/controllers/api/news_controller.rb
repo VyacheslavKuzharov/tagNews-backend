@@ -3,7 +3,7 @@ class Api::NewsController < ApplicationController
 
   def index
     news = News.all
-    news = news.by_date.page(params[:page]).per(20)
+    news = news.by_date.page(params[:page]).per(5)
 
     info = {}
     info[:news_count] = News.count
