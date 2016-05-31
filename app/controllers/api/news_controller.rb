@@ -25,7 +25,7 @@ class Api::NewsController < ApplicationController
     respond_to do |format|
       format.json {render json: single_news.as_json
                                     .merge(image: single_news.image.url,
-                                           photos: photos.map{|photo| photo.photo.url}
+                                           photos: photos.map{|photo| {id: photo.id, url:photo.photo.url} }
                                     )
       }
     end
@@ -39,6 +39,15 @@ class Api::NewsController < ApplicationController
                                                     .merge(description: truncate(news.description, length: 180, separator: ' '),
                                                            small_image: news.image.url(:small))}
       }
+    end
+  end
+
+  def comments
+    article = News.find_by_id params[:id]
+    comments = article.comments
+
+    respond_to do |format|
+      format.json { render json: comments.map{|comment| comment.as_json.merge(user: comment.user, avatar: 'http://www.hdwallpaperspulse.com/wp-content/uploads/2012/10/lovely-smile-wallpaper.jpg') } }
     end
   end
 end

@@ -12,6 +12,11 @@ Rails.application.routes.draw do
       collection do
         get 'top_news', action: 'top_news', as: :top_news
       end
+      member do
+        get '/comments', action: 'comments', as: :comments
+      end
     end
+
+    resources :comments, only: [:create]
   end
 end
